@@ -23,14 +23,126 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
 
+    <style>
+        /* Override for dark theme - when background is dark */
+        html[style*="background: rgb(34, 34, 34)"] body,
+        html[style*="background: rgb(34, 34, 34)"] h1,
+        html[style*="background: rgb(34, 34, 34)"] h2,
+        html[style*="background: rgb(34, 34, 34)"] h3,
+        html[style*="background: rgb(34, 34, 34)"] h4,
+        html[style*="background: rgb(34, 34, 34)"] h5,
+        html[style*="background: rgb(34, 34, 34)"] h6,
+        html[style*="background: rgb(34, 34, 34)"] p,
+        html[style*="background: rgb(34, 34, 34)"] a,
+        html[style*="background: rgb(34, 34, 34)"] li,
+        html[style*="background: rgb(34, 34, 34)"] span,
+        html[style*="background: rgb(34, 34, 34)"] div {
+            color: #ffffff !important;
+        }
+
+        html[style*="background: rgb(34, 34, 34)"] .icon-bar-chart,
+        html[style*="background: rgb(34, 34, 34)"] .icon-gear,
+        html[style*="background: rgb(34, 34, 34)"] .icon-lightbulb-o,
+        html[style*="background: rgb(34, 34, 34)"] i {
+            color: #ffffff !important;
+        }
+
+        html[style*="background: rgb(34, 34, 34)"] .btn-outline {
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+
+        html[style*="background: rgb(34, 34, 34)"] .btn-outline:hover {
+            background: #ffffff !important;
+            color: #222222 !important;
+        }
+
+        html[style*="background: rgb(34, 34, 34)"] #fh5co-nav a {
+            color: #ffffff !important;
+        }
+
+        html[style*="background: rgb(34, 34, 34)"] .fh5co-social a {
+            color: #ffffff !important;
+        }
+
+        html[style*="background: rgb(34, 34, 34)"] footer small {
+            color: #999999 !important;
+        }
+
+        /* Override for light theme - when background is light */
+        html[style*="background: rgb(238, 238, 238)"] body,
+        html[style*="background: rgb(238, 238, 238)"] h1,
+        html[style*="background: rgb(238, 238, 238)"] h2,
+        html[style*="background: rgb(238, 238, 238)"] h3,
+        html[style*="background: rgb(238, 238, 238)"] h4,
+        html[style*="background: rgb(238, 238, 238)"] h5,
+        html[style*="background: rgb(238, 238, 238)"] h6,
+        html[style*="background: rgb(238, 238, 238)"] p,
+        html[style*="background: rgb(238, 238, 238)"] li,
+        html[style*="background: rgb(238, 238, 238)"] span,
+        html[style*="background: rgb(238, 238, 238)"] div {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] a {
+            color: #555555 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .icon-bar-chart,
+        html[style*="background: rgb(238, 238, 238)"] .icon-gear,
+        html[style*="background: rgb(238, 238, 238)"] .icon-lightbulb-o,
+        html[style*="background: rgb(238, 238, 238)"] i {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .btn-outline {
+            color: #333333 !important;
+            border-color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .btn-outline:hover {
+            background: #333333 !important;
+            color: #ffffff !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] #fh5co-nav a {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .fh5co-social a {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] footer small {
+            color: #666666 !important;
+        }
+    </style>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
     <script>
+    // Set initial theme based on cookie
     if ($.cookie('styleCookie') === 'style-light.css') {
         $('html, body').css('background', '#eeeeee');
-    } else if ($.cookie('styleCookie') === 'style.css') {
+    } else {
         $('html, body').css('background', '#222222');
     }
+
+    // Force text color update on theme change
+    function updateTextColors() {
+        var bg = $('html').css('background-color');
+        if (bg === 'rgb(34, 34, 34)' || bg === '#222222') {
+            // Dark mode - white text
+            $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
+        } else if (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee') {
+            // Light mode - dark text
+            $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
+            $('a').css('color', '#555555');
+        }
+    }
+
+    // Run on page load
+    setTimeout(updateTextColors, 100);
     </script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -41,6 +153,40 @@
     <script src="js/google_map.js"></script>
     <script src="js/main.js"></script>
     <script src="js/modernizr-2.6.2.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        // Watch for theme toggle clicks
+        $(document).on('click', '.js-style-toggle', function() {
+            setTimeout(function() {
+                var bg = $('html').css('background-color');
+                if (bg === 'rgb(34, 34, 34)' || bg === '#222222') {
+                    // Dark mode - white text
+                    $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
+                } else if (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee') {
+                    // Light mode - dark text
+                    $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
+                    $('a').css('color', '#555555');
+                }
+            }, 300);
+        });
+
+        // Also check periodically in case of any changes
+        setInterval(function() {
+            var bg = $('html').css('background-color');
+            if (bg === 'rgb(34, 34, 34)' || bg === '#222222') {
+                if ($('h1').css('color') !== 'rgb(255, 255, 255)') {
+                    $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
+                }
+            } else if (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee') {
+                if ($('h1').css('color') !== 'rgb(51, 51, 51)') {
+                    $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
+                    $('a').css('color', '#555555');
+                }
+            }
+        }, 500);
+    });
+    </script>
 </head>
 
 <body>
