@@ -22,128 +22,14 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
 
-    <style>
-        /* DARK THEME - Force white text for all dark backgrounds */
-        /* RGB format */
-        html[style*="background: rgb(34, 34, 34)"] *,
-        html[style*="background:rgb(34, 34, 34)"] *,
-        body[style*="background: rgb(34, 34, 34)"] *,
-        body[style*="background:rgb(34, 34, 34)"] * {
-            color: #ffffff !important;
-        }
-
-        /* Hex format with space */
-        html[style*="background: #222222"] *,
-        html[style*="background: #222"] *,
-        body[style*="background: #222222"] *,
-        body[style*="background: #222"] * {
-            color: #ffffff !important;
-        }
-
-        /* Hex format without space */
-        html[style*="background:#222222"] *,
-        html[style*="background:#222"] *,
-        body[style*="background:#222222"] *,
-        body[style*="background:#222"] * {
-            color: #ffffff !important;
-        }
-
-        /* LIGHT THEME - Force dark text for all light backgrounds */
-        /* RGB format */
-        html[style*="background: rgb(238, 238, 238)"] *,
-        html[style*="background:rgb(238, 238, 238)"] *,
-        body[style*="background: rgb(238, 238, 238)"] *,
-        body[style*="background:rgb(238, 238, 238)"] * {
-            color: #333333 !important;
-        }
-
-        /* Hex format with space */
-        html[style*="background: #eeeeee"] *,
-        html[style*="background: #eee"] *,
-        body[style*="background: #eeeeee"] *,
-        body[style*="background: #eee"] * {
-            color: #333333 !important;
-        }
-
-        /* Hex format without space */
-        html[style*="background:#eeeeee"] *,
-        html[style*="background:#eee"] *,
-        body[style*="background:#eeeeee"] *,
-        body[style*="background:#eee"] * {
-            color: #333333 !important;
-        }
-
-        /* Button styles for dark theme */
-        html[style*="222"] .btn-outline,
-        body[style*="222"] .btn-outline {
-            color: #ffffff !important;
-            border-color: #ffffff !important;
-        }
-
-        html[style*="222"] .btn-outline:hover,
-        body[style*="222"] .btn-outline:hover {
-            background: #ffffff !important;
-            color: #222222 !important;
-        }
-
-        /* Button styles for light theme */
-        html[style*="eee"] .btn-outline,
-        body[style*="eee"] .btn-outline {
-            color: #333333 !important;
-            border-color: #333333 !important;
-        }
-
-        html[style*="eee"] .btn-outline:hover,
-        body[style*="eee"] .btn-outline:hover {
-            background: #333333 !important;
-            color: #ffffff !important;
-        }
-    </style>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
     <script>
-    // Set initial theme based on cookie
     if ($.cookie('styleCookie') === 'style-light.css') {
         $('html, body').css('background', '#eeeeee');
-    } else {
+    } else if ($.cookie('styleCookie') === 'style.css') {
         $('html, body').css('background', '#222222');
     }
-
-    // Force text color update on theme change - AGGRESSIVE VERSION
-    function updateTextColors() {
-        var htmlBg = $('html').css('background-color');
-        var bodyBg = $('body').css('background-color');
-        var htmlStyle = $('html').attr('style') || '';
-        var bodyStyle = $('body').attr('style') || '';
-        
-        // Check all possible ways the background could be set
-        var isDark = htmlBg === 'rgb(34, 34, 34)' || htmlBg === 'rgba(34, 34, 34, 1)' ||
-                     bodyBg === 'rgb(34, 34, 34)' || bodyBg === 'rgba(34, 34, 34, 1)' ||
-                     htmlStyle.includes('#222') || bodyStyle.includes('#222') ||
-                     htmlStyle.includes('34, 34, 34') || bodyStyle.includes('34, 34, 34');
-                     
-        var isLight = htmlBg === 'rgb(238, 238, 238)' || htmlBg === 'rgba(238, 238, 238, 1)' ||
-                      bodyBg === 'rgb(238, 238, 238)' || bodyBg === 'rgba(238, 238, 238, 1)' ||
-                      htmlStyle.includes('#eee') || bodyStyle.includes('#eee') ||
-                      htmlStyle.includes('238, 238, 238') || bodyStyle.includes('238, 238, 238');
-        
-        if (isDark) {
-            // FORCE white text for dark mode
-            $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#ffffff');
-            $('.btn-outline').css({'color': '#ffffff', 'border-color': '#ffffff'});
-        } else if (isLight) {
-            // FORCE dark text for light mode
-            $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#333333');
-            $('.btn-outline').css({'color': '#333333', 'border-color': '#333333'});
-        }
-    }
-
-    // Run immediately and repeatedly
-    updateTextColors();
-    setTimeout(updateTextColors, 50);
-    setTimeout(updateTextColors, 150);
-    setTimeout(updateTextColors, 300);
     </script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -153,59 +39,6 @@
     <script src="js/google_map.js"></script>
     <script src="js/main.js"></script>
     <script src="js/modernizr-2.6.2.min.js"></script>
-
-    <script>
-    $(document).ready(function() {
-        // Watch for theme toggle clicks
-        $(document).on('click', '.js-style-toggle', function() {
-            // Run multiple times to catch the change
-            for (let i = 0; i < 10; i++) {
-                setTimeout(function() {
-                    var htmlBg = $('html').css('background-color');
-                    var bodyBg = $('body').css('background-color');
-                    var htmlStyle = $('html').attr('style') || '';
-                    var bodyStyle = $('body').attr('style') || '';
-                    
-                    var isDark = htmlBg === 'rgb(34, 34, 34)' || bodyBg === 'rgb(34, 34, 34)' ||
-                                 htmlStyle.includes('#222') || bodyStyle.includes('#222') ||
-                                 htmlStyle.includes('34, 34, 34') || bodyStyle.includes('34, 34, 34');
-                                 
-                    var isLight = htmlBg === 'rgb(238, 238, 238)' || bodyBg === 'rgb(238, 238, 238)' ||
-                                  htmlStyle.includes('#eee') || bodyStyle.includes('#eee') ||
-                                  htmlStyle.includes('238, 238, 238') || bodyStyle.includes('238, 238, 238');
-                    
-                    if (isDark) {
-                        $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#ffffff');
-                        $('.btn-outline').css({'color': '#ffffff', 'border-color': '#ffffff'});
-                    } else if (isLight) {
-                        $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#333333');
-                        $('.btn-outline').css({'color': '#333333', 'border-color': '#333333'});
-                    }
-                }, i * 100);
-            }
-        });
-
-        // Continuous monitoring every half second
-        setInterval(function() {
-            var htmlBg = $('html').css('background-color');
-            var bodyBg = $('body').css('background-color');
-            var htmlStyle = $('html').attr('style') || '';
-            var bodyStyle = $('body').attr('style') || '';
-            
-            var isDark = htmlBg === 'rgb(34, 34, 34)' || bodyBg === 'rgb(34, 34, 34)' ||
-                         htmlStyle.includes('#222') || bodyStyle.includes('#222');
-                         
-            var isLight = htmlBg === 'rgb(238, 238, 238)' || bodyBg === 'rgb(238, 238, 238)' ||
-                          htmlStyle.includes('#eee') || bodyStyle.includes('#eee');
-            
-            if (isDark && $('h1').css('color') !== 'rgb(255, 255, 255)') {
-                $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#ffffff');
-            } else if (isLight && $('h1').css('color') !== 'rgb(51, 51, 51)') {
-                $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#333333');
-            }
-        }, 500);
-    });
-    </script>
 </head>
 
 <body>
