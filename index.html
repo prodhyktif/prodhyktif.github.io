@@ -68,6 +68,54 @@
         html[style*="background: rgb(34, 34, 34)"] footer small {
             color: #999999 !important;
         }
+
+        /* Override for light theme - when background is light */
+        html[style*="background: rgb(238, 238, 238)"] body,
+        html[style*="background: rgb(238, 238, 238)"] h1,
+        html[style*="background: rgb(238, 238, 238)"] h2,
+        html[style*="background: rgb(238, 238, 238)"] h3,
+        html[style*="background: rgb(238, 238, 238)"] h4,
+        html[style*="background: rgb(238, 238, 238)"] h5,
+        html[style*="background: rgb(238, 238, 238)"] h6,
+        html[style*="background: rgb(238, 238, 238)"] p,
+        html[style*="background: rgb(238, 238, 238)"] li,
+        html[style*="background: rgb(238, 238, 238)"] span,
+        html[style*="background: rgb(238, 238, 238)"] div {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] a {
+            color: #555555 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .icon-bar-chart,
+        html[style*="background: rgb(238, 238, 238)"] .icon-gear,
+        html[style*="background: rgb(238, 238, 238)"] .icon-lightbulb-o,
+        html[style*="background: rgb(238, 238, 238)"] i {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .btn-outline {
+            color: #333333 !important;
+            border-color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .btn-outline:hover {
+            background: #333333 !important;
+            color: #ffffff !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] #fh5co-nav a {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] .fh5co-social a {
+            color: #333333 !important;
+        }
+
+        html[style*="background: rgb(238, 238, 238)"] footer small {
+            color: #666666 !important;
+        }
     </style>
 
     <script src="js/jquery.min.js"></script>
@@ -86,9 +134,10 @@
         if (bg === 'rgb(34, 34, 34)' || bg === '#222222') {
             // Dark mode - white text
             $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
-        } else {
-            // Light mode - remove inline styles to use default
-            $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '');
+        } else if (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee') {
+            // Light mode - dark text
+            $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
+            $('a').css('color', '#555555');
         }
     }
 
@@ -114,9 +163,10 @@
                 if (bg === 'rgb(34, 34, 34)' || bg === '#222222') {
                     // Dark mode - white text
                     $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
-                } else {
-                    // Light mode - remove inline styles
-                    $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '');
+                } else if (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee') {
+                    // Light mode - dark text
+                    $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
+                    $('a').css('color', '#555555');
                 }
             }, 300);
         });
@@ -127,6 +177,11 @@
             if (bg === 'rgb(34, 34, 34)' || bg === '#222222') {
                 if ($('h1').css('color') !== 'rgb(255, 255, 255)') {
                     $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
+                }
+            } else if (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee') {
+                if ($('h1').css('color') !== 'rgb(51, 51, 51)') {
+                    $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
+                    $('a').css('color', '#555555');
                 }
             }
         }, 500);
