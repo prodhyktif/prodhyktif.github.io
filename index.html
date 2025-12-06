@@ -24,154 +24,80 @@
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
 
     <style>
-        /* Override for dark theme - when background is dark #222222 */
-        html[style*="background: rgb(34, 34, 34)"] body,
-        html[style*="background: rgb(34, 34, 34)"] h1,
-        html[style*="background: rgb(34, 34, 34)"] h2,
-        html[style*="background: rgb(34, 34, 34)"] h3,
-        html[style*="background: rgb(34, 34, 34)"] h4,
-        html[style*="background: rgb(34, 34, 34)"] h5,
-        html[style*="background: rgb(34, 34, 34)"] h6,
-        html[style*="background: rgb(34, 34, 34)"] p,
-        html[style*="background: rgb(34, 34, 34)"] a,
-        html[style*="background: rgb(34, 34, 34)"] li,
-        html[style*="background: rgb(34, 34, 34)"] span,
-        html[style*="background: rgb(34, 34, 34)"] div {
+        /* DARK THEME - Force white text for all dark backgrounds */
+        /* RGB format */
+        html[style*="background: rgb(34, 34, 34)"] *,
+        html[style*="background:rgb(34, 34, 34)"] *,
+        body[style*="background: rgb(34, 34, 34)"] *,
+        body[style*="background:rgb(34, 34, 34)"] * {
             color: #ffffff !important;
         }
 
-        html[style*="background: rgb(34, 34, 34)"] .icon-bar-chart,
-        html[style*="background: rgb(34, 34, 34)"] .icon-gear,
-        html[style*="background: rgb(34, 34, 34)"] .icon-lightbulb-o,
-        html[style*="background: rgb(34, 34, 34)"] i {
+        /* Hex format with space */
+        html[style*="background: #222222"] *,
+        html[style*="background: #222"] *,
+        body[style*="background: #222222"] *,
+        body[style*="background: #222"] * {
             color: #ffffff !important;
         }
 
-        html[style*="background: rgb(34, 34, 34)"] .btn-outline {
+        /* Hex format without space */
+        html[style*="background:#222222"] *,
+        html[style*="background:#222"] *,
+        body[style*="background:#222222"] *,
+        body[style*="background:#222"] * {
+            color: #ffffff !important;
+        }
+
+        /* LIGHT THEME - Force dark text for all light backgrounds */
+        /* RGB format */
+        html[style*="background: rgb(238, 238, 238)"] *,
+        html[style*="background:rgb(238, 238, 238)"] *,
+        body[style*="background: rgb(238, 238, 238)"] *,
+        body[style*="background:rgb(238, 238, 238)"] * {
+            color: #333333 !important;
+        }
+
+        /* Hex format with space */
+        html[style*="background: #eeeeee"] *,
+        html[style*="background: #eee"] *,
+        body[style*="background: #eeeeee"] *,
+        body[style*="background: #eee"] * {
+            color: #333333 !important;
+        }
+
+        /* Hex format without space */
+        html[style*="background:#eeeeee"] *,
+        html[style*="background:#eee"] *,
+        body[style*="background:#eeeeee"] *,
+        body[style*="background:#eee"] * {
+            color: #333333 !important;
+        }
+
+        /* Button styles for dark theme */
+        html[style*="222"] .btn-outline,
+        body[style*="222"] .btn-outline {
             color: #ffffff !important;
             border-color: #ffffff !important;
         }
 
-        html[style*="background: rgb(34, 34, 34)"] .btn-outline:hover {
+        html[style*="222"] .btn-outline:hover,
+        body[style*="222"] .btn-outline:hover {
             background: #ffffff !important;
             color: #222222 !important;
         }
 
-        html[style*="background: rgb(34, 34, 34)"] #fh5co-nav a {
-            color: #ffffff !important;
-        }
-
-        html[style*="background: rgb(34, 34, 34)"] .fh5co-social a {
-            color: #ffffff !important;
-        }
-
-        html[style*="background: rgb(34, 34, 34)"] footer small {
-            color: #999999 !important;
-        }
-
-        /* Override for dark theme - alternative hex format */
-        html[style*="background:#222222"] body,
-        html[style*="background:#222222"] h1,
-        html[style*="background:#222222"] h2,
-        html[style*="background:#222222"] h3,
-        html[style*="background:#222222"] h4,
-        html[style*="background:#222222"] h5,
-        html[style*="background:#222222"] h6,
-        html[style*="background:#222222"] p,
-        html[style*="background:#222222"] a,
-        html[style*="background:#222222"] li,
-        html[style*="background:#222222"] span,
-        html[style*="background:#222222"] div,
-        html[style*="background:#222222"] i {
-            color: #ffffff !important;
-        }
-
-        html[style*="background:#222222"] .btn-outline {
-            color: #ffffff !important;
-            border-color: #ffffff !important;
-        }
-
-        html[style*="background:#222222"] #fh5co-nav a,
-        html[style*="background:#222222"] .fh5co-social a {
-            color: #ffffff !important;
-        }
-
-        /* Override for light theme - when background is light #eeeeee */
-        html[style*="background: rgb(238, 238, 238)"] body,
-        html[style*="background: rgb(238, 238, 238)"] h1,
-        html[style*="background: rgb(238, 238, 238)"] h2,
-        html[style*="background: rgb(238, 238, 238)"] h3,
-        html[style*="background: rgb(238, 238, 238)"] h4,
-        html[style*="background: rgb(238, 238, 238)"] h5,
-        html[style*="background: rgb(238, 238, 238)"] h6,
-        html[style*="background: rgb(238, 238, 238)"] p,
-        html[style*="background: rgb(238, 238, 238)"] li,
-        html[style*="background: rgb(238, 238, 238)"] span,
-        html[style*="background: rgb(238, 238, 238)"] div {
-            color: #333333 !important;
-        }
-
-        html[style*="background: rgb(238, 238, 238)"] a {
-            color: #555555 !important;
-        }
-
-        html[style*="background: rgb(238, 238, 238)"] .icon-bar-chart,
-        html[style*="background: rgb(238, 238, 238)"] .icon-gear,
-        html[style*="background: rgb(238, 238, 238)"] .icon-lightbulb-o,
-        html[style*="background: rgb(238, 238, 238)"] i {
-            color: #333333 !important;
-        }
-
-        html[style*="background: rgb(238, 238, 238)"] .btn-outline {
+        /* Button styles for light theme */
+        html[style*="eee"] .btn-outline,
+        body[style*="eee"] .btn-outline {
             color: #333333 !important;
             border-color: #333333 !important;
         }
 
-        html[style*="background: rgb(238, 238, 238)"] .btn-outline:hover {
+        html[style*="eee"] .btn-outline:hover,
+        body[style*="eee"] .btn-outline:hover {
             background: #333333 !important;
             color: #ffffff !important;
-        }
-
-        html[style*="background: rgb(238, 238, 238)"] #fh5co-nav a {
-            color: #333333 !important;
-        }
-
-        html[style*="background: rgb(238, 238, 238)"] .fh5co-social a {
-            color: #333333 !important;
-        }
-
-        html[style*="background: rgb(238, 238, 238)"] footer small {
-            color: #666666 !important;
-        }
-
-        /* Override for light theme - alternative hex format */
-        html[style*="background:#eeeeee"] body,
-        html[style*="background:#eeeeee"] h1,
-        html[style*="background:#eeeeee"] h2,
-        html[style*="background:#eeeeee"] h3,
-        html[style*="background:#eeeeee"] h4,
-        html[style*="background:#eeeeee"] h5,
-        html[style*="background:#eeeeee"] h6,
-        html[style*="background:#eeeeee"] p,
-        html[style*="background:#eeeeee"] li,
-        html[style*="background:#eeeeee"] span,
-        html[style*="background:#eeeeee"] div,
-        html[style*="background:#eeeeee"] i {
-            color: #333333 !important;
-        }
-
-        html[style*="background:#eeeeee"] a {
-            color: #555555 !important;
-        }
-
-        html[style*="background:#eeeeee"] .btn-outline {
-            color: #333333 !important;
-            border-color: #333333 !important;
-        }
-
-        html[style*="background:#eeeeee"] #fh5co-nav a,
-        html[style*="background:#eeeeee"] .fh5co-social a {
-            color: #333333 !important;
         }
     </style>
 
@@ -185,31 +111,40 @@
         $('html, body').css('background', '#222222');
     }
 
-    // Force text color update on theme change
+    // Force text color update on theme change - AGGRESSIVE VERSION
     function updateTextColors() {
-        var bg = $('html').css('background-color');
+        var htmlBg = $('html').css('background-color');
         var bodyBg = $('body').css('background-color');
+        var htmlStyle = $('html').attr('style') || '';
+        var bodyStyle = $('body').attr('style') || '';
         
-        // Check both html and body background
-        var isDark = (bg === 'rgb(34, 34, 34)' || bg === '#222222' || 
-                     bodyBg === 'rgb(34, 34, 34)' || bodyBg === '#222222');
-        var isLight = (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee' || 
-                      bodyBg === 'rgb(238, 238, 238)' || bodyBg === '#eeeeee');
+        // Check all possible ways the background could be set
+        var isDark = htmlBg === 'rgb(34, 34, 34)' || htmlBg === 'rgba(34, 34, 34, 1)' ||
+                     bodyBg === 'rgb(34, 34, 34)' || bodyBg === 'rgba(34, 34, 34, 1)' ||
+                     htmlStyle.includes('#222') || bodyStyle.includes('#222') ||
+                     htmlStyle.includes('34, 34, 34') || bodyStyle.includes('34, 34, 34');
+                     
+        var isLight = htmlBg === 'rgb(238, 238, 238)' || htmlBg === 'rgba(238, 238, 238, 1)' ||
+                      bodyBg === 'rgb(238, 238, 238)' || bodyBg === 'rgba(238, 238, 238, 1)' ||
+                      htmlStyle.includes('#eee') || bodyStyle.includes('#eee') ||
+                      htmlStyle.includes('238, 238, 238') || bodyStyle.includes('238, 238, 238');
         
         if (isDark) {
-            // Dark mode - white text
-            $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
+            // FORCE white text for dark mode
+            $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#ffffff');
             $('.btn-outline').css({'color': '#ffffff', 'border-color': '#ffffff'});
         } else if (isLight) {
-            // Light mode - dark text
-            $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
-            $('a').css('color', '#555555');
+            // FORCE dark text for light mode
+            $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#333333');
             $('.btn-outline').css({'color': '#333333', 'border-color': '#333333'});
         }
     }
 
-    // Run on page load
-    setTimeout(updateTextColors, 100);
+    // Run immediately and repeatedly
+    updateTextColors();
+    setTimeout(updateTextColors, 50);
+    setTimeout(updateTextColors, 150);
+    setTimeout(updateTextColors, 300);
     </script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -225,50 +160,50 @@
     $(document).ready(function() {
         // Watch for theme toggle clicks
         $(document).on('click', '.js-style-toggle', function() {
-            setTimeout(function() {
-                var bg = $('html').css('background-color');
-                var bodyBg = $('body').css('background-color');
-                
-                // Check both html and body background
-                var isDark = (bg === 'rgb(34, 34, 34)' || bg === '#222222' || 
-                             bodyBg === 'rgb(34, 34, 34)' || bodyBg === '#222222');
-                var isLight = (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee' || 
-                              bodyBg === 'rgb(238, 238, 238)' || bodyBg === '#eeeeee');
-                
-                if (isDark) {
-                    // Dark mode - white text
-                    $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
-                    $('.btn-outline').css({'color': '#ffffff', 'border-color': '#ffffff'});
-                } else if (isLight) {
-                    // Light mode - dark text
-                    $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
-                    $('a').css('color', '#555555');
-                    $('.btn-outline').css({'color': '#333333', 'border-color': '#333333'});
-                }
-            }, 300);
+            // Run multiple times to catch the change
+            for (let i = 0; i < 10; i++) {
+                setTimeout(function() {
+                    var htmlBg = $('html').css('background-color');
+                    var bodyBg = $('body').css('background-color');
+                    var htmlStyle = $('html').attr('style') || '';
+                    var bodyStyle = $('body').attr('style') || '';
+                    
+                    var isDark = htmlBg === 'rgb(34, 34, 34)' || bodyBg === 'rgb(34, 34, 34)' ||
+                                 htmlStyle.includes('#222') || bodyStyle.includes('#222') ||
+                                 htmlStyle.includes('34, 34, 34') || bodyStyle.includes('34, 34, 34');
+                                 
+                    var isLight = htmlBg === 'rgb(238, 238, 238)' || bodyBg === 'rgb(238, 238, 238)' ||
+                                  htmlStyle.includes('#eee') || bodyStyle.includes('#eee') ||
+                                  htmlStyle.includes('238, 238, 238') || bodyStyle.includes('238, 238, 238');
+                    
+                    if (isDark) {
+                        $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#ffffff');
+                        $('.btn-outline').css({'color': '#ffffff', 'border-color': '#ffffff'});
+                    } else if (isLight) {
+                        $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#333333');
+                        $('.btn-outline').css({'color': '#333333', 'border-color': '#333333'});
+                    }
+                }, i * 100);
+            }
         });
 
-        // Also check periodically in case of any changes
+        // Continuous monitoring every half second
         setInterval(function() {
-            var bg = $('html').css('background-color');
+            var htmlBg = $('html').css('background-color');
             var bodyBg = $('body').css('background-color');
+            var htmlStyle = $('html').attr('style') || '';
+            var bodyStyle = $('body').attr('style') || '';
             
-            var isDark = (bg === 'rgb(34, 34, 34)' || bg === '#222222' || 
-                         bodyBg === 'rgb(34, 34, 34)' || bodyBg === '#222222');
-            var isLight = (bg === 'rgb(238, 238, 238)' || bg === '#eeeeee' || 
-                          bodyBg === 'rgb(238, 238, 238)' || bodyBg === '#eeeeee');
+            var isDark = htmlBg === 'rgb(34, 34, 34)' || bodyBg === 'rgb(34, 34, 34)' ||
+                         htmlStyle.includes('#222') || bodyStyle.includes('#222');
+                         
+            var isLight = htmlBg === 'rgb(238, 238, 238)' || bodyBg === 'rgb(238, 238, 238)' ||
+                          htmlStyle.includes('#eee') || bodyStyle.includes('#eee');
             
-            if (isDark) {
-                if ($('h1').css('color') !== 'rgb(255, 255, 255)') {
-                    $('body, h1, h2, h3, h4, h5, h6, p, a, li, span, div, i').css('color', '#ffffff');
-                    $('.btn-outline').css({'color': '#ffffff', 'border-color': '#ffffff'});
-                }
-            } else if (isLight) {
-                if ($('h1').css('color') !== 'rgb(51, 51, 51)') {
-                    $('body, h1, h2, h3, h4, h5, h6, p, li, span, div, i').css('color', '#333333');
-                    $('a').css('color', '#555555');
-                    $('.btn-outline').css({'color': '#333333', 'border-color': '#333333'});
-                }
+            if (isDark && $('h1').css('color') !== 'rgb(255, 255, 255)') {
+                $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#ffffff');
+            } else if (isLight && $('h1').css('color') !== 'rgb(51, 51, 51)') {
+                $('*').not('img, svg, path, circle, rect, line, polyline, polygon').css('color', '#333333');
             }
         }, 500);
     });
