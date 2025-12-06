@@ -24,6 +24,19 @@
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
 
     <style>
+        /* Hide all flexslider elements */
+        .flexslider,
+        .flex-viewport,
+        .flex-control-nav,
+        .flex-direction-nav,
+        .slides,
+        [class*="flex-"] {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+
         /* Override for dark theme - when background is dark */
         html[style*="background: rgb(34, 34, 34)"] body,
         html[style*="background: rgb(34, 34, 34)"] h1,
@@ -156,6 +169,9 @@
 
     <script>
     $(document).ready(function() {
+        // Hide flexslider elements on load
+        $('.flexslider, .flex-viewport, .flex-control-nav, .flex-direction-nav, .slides, [class*="flex-"]').hide();
+
         // Watch for theme toggle clicks
         $(document).on('click', '.js-style-toggle', function() {
             setTimeout(function() {
