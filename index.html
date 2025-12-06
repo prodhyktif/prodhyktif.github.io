@@ -41,6 +41,63 @@
     <script src="js/google_map.js"></script>
     <script src="js/main.js"></script>
     <script src="js/modernizr-2.6.2.min.js"></script>
+    
+    <style>
+        /* Ensure text visibility in both themes */
+        .theme-adaptive-text {
+            color: inherit !important;
+            opacity: 0.9;
+        }
+        
+        .theme-adaptive-heading {
+            color: inherit !important;
+            opacity: 0.95;
+        }
+        
+        .theme-adaptive-subtext {
+            color: inherit !important;
+            opacity: 0.85;
+        }
+        
+        /* Override default paragraph styles */
+        p.theme-adaptive-text,
+        p.theme-adaptive-subtext {
+            color: inherit !important;
+        }
+        
+        /* Service cards with theme-aware backgrounds */
+        .service-card {
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card i {
+            color: inherit !important;
+            opacity: 0.9;
+        }
+        
+        .service-card h3 {
+            color: inherit !important;
+            opacity: 0.95;
+        }
+        
+        .service-card p {
+            color: inherit !important;
+            opacity: 0.85;
+        }
+        
+        /* Ensure icons are visible */
+        .icon-bar-graph, .icon-lightbulb, .icon-eye {
+            color: inherit !important;
+            opacity: 0.85;
+        }
+        
+        /* Additional paragraph flexibility */
+        .fh5co-text p {
+            color: inherit !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,8 +120,11 @@
             <div class="container">
                 <div class="fh5co-text-wrap animate-box">
                     <div class="fh5co-intro-text">
-                        <h1>Andhyka Cakrabuana Adhitama</h1>
-                        <h2>Data Professional & Solutions Architect</h2>
+                        <h1 class="theme-adaptive-heading">Andhyka Cakrabuana Adhitama</h1>
+                        <h2 class="theme-adaptive-heading">Data Professional & Solutions Architect</h2>
+                        <p class="theme-adaptive-subtext" style="margin-top: 30px; font-size: 18px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            Transforming complex data challenges into actionable insights and scalable solutions
+                        </p>
                     </div>
                 </div>
             </div>
@@ -80,30 +140,30 @@
             <div class="container">
                 <div class="row" style="margin-bottom: 60px;">
                     <div class="col-md-12 text-center animate-box">
-                        <h2 style="font-size: 42px; margin-bottom: 20px;">What I Deliver</h2>
-                        <p style="font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                        <h2 class="theme-adaptive-heading" style="font-size: 42px; margin-bottom: 20px;">What I Deliver</h2>
+                        <p class="theme-adaptive-subtext" style="font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.7;">
                             Strategic solutions that bridge technology and business objectives
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 text-center animate-box">
-                        <div style="padding: 30px;">
-                            <i class="icon-bar-chart" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <div class="service-card">
+                            <i class="icon-bar-graph" style="font-size: 48px; margin-bottom: 20px;"></i>
                             <h3>Data Engineering</h3>
                             <p>Building robust data pipelines and infrastructure that scale with your business needs</p>
                         </div>
                     </div>
                     <div class="col-md-4 text-center animate-box">
-                        <div style="padding: 30px;">
-                            <i class="icon-gear" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <div class="service-card">
+                            <i class="icon-lightbulb" style="font-size: 48px; margin-bottom: 20px;"></i>
                             <h3>Solutions Architecture</h3>
                             <p>Designing end-to-end systems that solve real business problems with elegant technical approaches</p>
                         </div>
                     </div>
                     <div class="col-md-4 text-center animate-box">
-                        <div style="padding: 30px;">
-                            <i class="icon-lightbulb-o" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <div class="service-card">
+                            <i class="icon-eye" style="font-size: 48px; margin-bottom: 20px;"></i>
                             <h3>Analytics & Insights</h3>
                             <p>Turning raw data into strategic intelligence that drives informed decision-making</p>
                         </div>
@@ -125,8 +185,8 @@
                         </div>
                     </div>
                     <div class="fh5co-text col-md-4 col-md-pull-8 animate-box">
-                        <h2>Featured Solutions</h2>
-                        <p>Explore my portfolio of data-driven projects, technical solutions, and digital products designed to solve complex challenges.</p>
+                        <h2 class="theme-adaptive-heading">Featured Solutions</h2>
+                        <p class="theme-adaptive-text">Explore my portfolio of data-driven projects, technical solutions, and digital products designed to solve complex challenges.</p>
                         <p><a href="product.html" class="btn btn-light btn-outline transition">View All Products</a></p>
                     </div>
                 </div>
@@ -138,11 +198,11 @@
             <div class="container">
                 <div class="row" style="padding: 60px 0;">
                     <div class="col-md-8 col-md-offset-2 text-center animate-box">
-                        <h2 style="font-size: 42px; margin-bottom: 30px;">My Approach</h2>
-                        <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+                        <h2 class="theme-adaptive-heading" style="font-size: 42px; margin-bottom: 30px;">My Approach</h2>
+                        <p class="theme-adaptive-text" style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
                             I believe in building solutions that are not just technically sound, but strategically aligned with business goals. Every project starts with understanding the problem deeply, then crafting an approach that balances innovation with practicality.
                         </p>
-                        <p style="font-size: 18px; line-height: 1.8;">
+                        <p class="theme-adaptive-text" style="font-size: 18px; line-height: 1.8;">
                             Whether it's architecting data systems, developing analytics frameworks, or creating digital products, my focus remains on delivering measurable value and sustainable results.
                         </p>
                     </div>
@@ -155,8 +215,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center animate-box">
-                        <h2 style="font-size: 36px; margin-bottom: 30px;">Let's Work Together</h2>
-                        <p style="font-size: 18px; margin-bottom: 40px; line-height: 1.7;">
+                        <h2 class="theme-adaptive-heading" style="font-size: 36px; margin-bottom: 30px;">Let's Work Together</h2>
+                        <p class="theme-adaptive-text" style="font-size: 18px; margin-bottom: 40px; line-height: 1.7;">
                             Interested in collaborating or learning more about my work? Explore my products or get to know my background.
                         </p>
                         <p>
